@@ -13,12 +13,6 @@ mongoose
     {
       useNewUrlParser: true,
       useUnifiedTopology: true,
-      autoEncryption: {
-        keyVaultNamespace,
-        kmsProviders,
-        schemaMap: patientSchema,
-        extraOptions: extraOptions,
-      },
     }
   )
   .then(() => console.log("MongoDB Atlas connected"))
