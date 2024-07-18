@@ -7,8 +7,6 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
-console.log("HELLO");
-
 mongoose
   .connect(
     "mongodb+srv://rufus:12345@newscluster.cwqparl.mongodb.net/?retryWrites=true&w=majority&appName=NewsCluster",
@@ -22,8 +20,8 @@ mongoose
 
 app.post("/signup", async (req, res) => {
   try {
-    const { username, password } = req.body;
-    const newUser = new User({ username, password });
+    const { username, email, password } = req.body;
+    const newUser = new User({ username, email, password });
     await newUser.save();
     res.status(201).json(newUser);
   } catch (error) {
